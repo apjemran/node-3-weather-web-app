@@ -10,9 +10,11 @@ const forecast = (latitute,longitude,callback)=>{
             callback('Request is not formed properly', undefined)
         }else{
             callback(undefined, {
-                dailysummary : body.daily.data[0].summary,
+                dailysummary : body.daily.summary,
                 prediction : 'There is currently '+ body.currently.temperature+ ' degrees outside and there is '
-                +body.currently.precipProbability+'% chance of rain'   
+                +body.currently.precipProbability+'% chance of rain',
+                highTemp: 'Highest Temperature: '+body.daily.data[0].temperatureHigh,               
+                lowTemp: 'Lowest Temperature: '+ body.daily.data[0].temperatureLow
             })
         }
 

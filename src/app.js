@@ -56,7 +56,9 @@ app.get('/weather',(req,res)=>{
             return res.send({
                 forecast: foreCastData,
                 location,
-                address: address
+                address: address,
+                highTemperature: foreCastData.highTemp,
+                lowTemperature: foreCastData.lowTemp
             })
         })
     })    
